@@ -13,7 +13,6 @@ Test Accuracy: 84-86%
 See project demo (Youtube): https://youtu.be/bceSR8UrAlk
 
 
-Some of the code is inspired by this repository: https://github.com/akshaybahadur21/Digit-Recognizer
 
 
 
