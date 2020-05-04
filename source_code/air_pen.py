@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 from collections import deque
 from NN_Model import NN_Model
 
-raw_X_train = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-train-images-idx3-ubyte')
-raw_y_train = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-train-labels-idx1-ubyte')
-raw_X_test = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-test-images-idx3-ubyte')
-raw_y_test = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-test-labels-idx1-ubyte')
+raw_X_train = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-train-images-idx3-ubyte')
+raw_y_train = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-train-labels-idx1-ubyte')
+raw_X_test = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-test-images-idx3-ubyte')
+raw_y_test = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-test-labels-idx1-ubyte')
 
 model= NN_Model(raw_X_train = raw_X_train,
                 raw_y_train = raw_y_train)
@@ -49,9 +49,9 @@ while(cap.isOpened()):
     mask = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)
     mask = cv.dilate(mask, kernel, iterations=1)
     
-    res = cv.bitwise_and(img,img, mask= mask)
+    # res = cv.bitwise_and(img,img, mask= mask)
     
-    cnts, heir = cv.findContours(mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)[-2:]
+    cnts, heir = cv.findContours(mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     center = None
     
     if len(cnts) > 0:
@@ -73,7 +73,7 @@ while(cap.isOpened()):
     elif len(cnts) == 0: 
         notepad = np.zeros((490,640,3), dtype=np.uint8)
         pts = deque(maxlen=512)
-    
+
     if cv.waitKey(1) & 0xFF == ord('d'): 
         print("key d is pressed")
         notepad = np.zeros((490,640,3), dtype=np.uint8)
@@ -102,7 +102,7 @@ while(cap.isOpened()):
 
     cv.putText(notepad, f"Prediction: {result}", (10, 470), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
-    # cv.imshow('Video', img)
+    cv.imshow('Video', img)
     # cv.imshow('mask',mask)
     # cv.imshow('res',res)
     cv.imshow('Note', notepad)

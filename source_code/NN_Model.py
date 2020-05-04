@@ -59,7 +59,7 @@ class NN_Model():
 
         # plt.imshow(Xt.T, cmap='gray')
         # plt.title("Class {}".format(labels[result_label[0]]))
-        # plt.show()
+        # plt.show()s
         print(labels[result_label[0]])
         return str(labels[result_label[0]])
 
