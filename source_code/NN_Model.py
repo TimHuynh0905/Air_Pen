@@ -1,11 +1,7 @@
-import idx2numpy
 import keras
-from keras.models import load_model, Sequential
-from keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D, Conv1D
-from keras.optimizers import SGD
-from keras import backend
+from keras.layers import Dense
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 labels = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 n_cat = len(labels)

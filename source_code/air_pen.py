@@ -1,15 +1,15 @@
 import numpy as np
 import idx2numpy
-import random
+# import random
 import cv2 as cv
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from collections import deque
 from NN_Model import NN_Model
 
-raw_X_train = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-train-images-idx3-ubyte')
-raw_y_train = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-train-labels-idx1-ubyte')
-raw_X_test = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-test-images-idx3-ubyte')
-raw_y_test = idx2numpy.convert_from_file('/Users/timhuynh0905/Documents/Air_Pen/EMNIST_data/emnist-byclass-test-labels-idx1-ubyte')
+raw_X_train = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-train-images-idx3-ubyte')
+raw_y_train = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-train-labels-idx1-ubyte')
+raw_X_test = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-test-images-idx3-ubyte')
+raw_y_test = idx2numpy.convert_from_file('EMNIST_data/emnist-byclass-test-labels-idx1-ubyte')
 
 model= NN_Model(raw_X_train = raw_X_train,
                 raw_y_train = raw_y_train)
@@ -89,18 +89,17 @@ while(cap.isOpened()):
                 print(cv.contourArea(cnt))
                 if cv.contourArea(cnt) > 1000: 
                     x, y, w, h = cv.boundingRect(cnt)
+                    cv.rectangle(img, (x, y), (x+w, y+h), (0, 255, 255), 2)
                     digit = gray[y-30:y + h + 30, x-30:x + w+30]
                     X = cv.resize(digit, (28, 28))
                     X = X.T
-                    # X = cv.rotate(X, cv.ROTATE_90_COUNTERCLOCKWISE)
-                    # X = cv.flip(X, 0)
                     print(X.shape)
                     result = model.predict(X)
                     print(result)
         notepad = np.zeros((490,640,3), dtype=np.uint8)
         pts = deque(maxlen=512)
 
-    cv.putText(notepad, f"Prediction: {result}", (10, 470), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
+    cv.putText(img, f"Prediction: {result}", (10, 470), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
     cv.imshow('Video', img)
     # cv.imshow('mask',mask)
