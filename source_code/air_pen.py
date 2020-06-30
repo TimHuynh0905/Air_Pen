@@ -31,7 +31,7 @@ upper_blue = np.array([130,255,255])
 
 notepad = np.zeros((490,640,3), dtype=np.uint8)
 digit = np.zeros((200, 200, 3), dtype=np.uint8)
-cv.namedWindow('Note', cv.WINDOW_AUTOSIZE)
+cv.namedWindow('Video', cv.WINDOW_AUTOSIZE)
 
 pts = deque(maxlen = 512)
 
@@ -104,7 +104,7 @@ while(cap.isOpened()):
     cv.imshow('Video', img)
     # cv.imshow('mask',mask)
     # cv.imshow('res',res)
-    cv.imshow('Note', notepad)
+    # cv.imshow('Note', notepad)
     
     k = cv.waitKey(1) & 0xFF
     if k == 27: # type esc to exit
