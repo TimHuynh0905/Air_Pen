@@ -83,9 +83,9 @@ while(cap.isOpened()):
         print("key a is pressed")
         if len(pts) != []:
             gray = cv.cvtColor(notepad, cv.COLOR_BGR2GRAY)
-            contours, hierarchy = cv.findContours(gray, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
-            if len(contours) > 0:
-                cnt = sorted(contours, key = cv.contourArea, reverse = True)[0]
+            cnts, heir = cv.findContours(gray, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+            if len(cnts) > 0:
+                cnt = sorted(cnts, key = cv.contourArea, reverse = True)[0]
                 print(cv.contourArea(cnt))
                 if cv.contourArea(cnt) > 1000: 
                     x, y, w, h = cv.boundingRect(cnt)
