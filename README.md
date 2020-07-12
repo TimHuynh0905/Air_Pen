@@ -11,9 +11,7 @@ The objective of this project is to familiarize with deep learning practices, su
 - Training data used in this project are taken from the EMNIST Dataset. Link: https://www.nist.gov/itl/products-and-services/emnist-dataset
 
 ## Output
-- Train Accuracy: 85-90% 
-
-- Test Accuracy: 84-86%
+- Train Accuracy: ~ 85% 
 
 - Demo (Youtube): https://youtu.be/bceSR8UrAlk (last updated: 05/01/2020)
 
