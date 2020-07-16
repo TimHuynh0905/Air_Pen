@@ -3,7 +3,7 @@
 
 - Deep Learning with Python, Keras, and OpenCV 
 
-- A simple letter + number recognition system
+- A simple handwritten character recognition system
 
 ## Project Overview
 The objective of this project is to familiarize with deep learning practices, such as processing images with OpenCV and building neural networks with Keras and NumPy.
@@ -23,6 +23,7 @@ numpy==1.18.1
 opencv-python==4.2.0
 keras==2.3.1
 matplotlib==3.1.3
+idx2numpy==1.2.2
 ```
 ### Installing
 
