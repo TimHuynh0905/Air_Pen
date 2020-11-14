@@ -1,4 +1,4 @@
-# Air Pen	
+# Letter Webcam OCR (Air Pen)
 - Author: Tim Huynh
 
 - Deep Learning with Python, Keras, and OpenCV 
